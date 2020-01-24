@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> Nginx教程：01-介绍 · 周晓钢的知识崖</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Nginx教程：01-介绍 - xiaogang zhou"><meta name="keywords" content="知识崖"><meta name="author" content="xiaogang zhou"><link rel="short icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="周晓钢的知识崖"></head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="首页" class="nav-list-link">首页</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">Nginx教程：01-介绍</h1><div class="post-info">2018-10-26<p class="visit"><i data-hk-page="current">-</i><span>次访问</span></p></div><div class="post-content"><p><img src="/img/2018/nginx02.jpg" width="50%" height="50%"><br><a id="more"></a></p>
+<h2 id="1、Nginx的功能特性"><a href="#1、Nginx的功能特性" class="headerlink" title="1、Nginx的功能特性"></a>1、Nginx的功能特性</h2><blockquote>
+<ul>
+<li>基本Http服务，可以作为Http代理服务器和反向代理服务器，支持通过缓存加速访问，可以完成简单的负载均衡和容错，支持包过滤功能，支持SSL</li>
+<li>高级Http服务，可以进行自定义配置，支持虚拟主机，支持URL重定向，支持网络监控，支持流媒体传输等</li>
+<li>邮件代理服务器，支持IMAP/POP3代理服务功能，支持内部SMTP代理服务功能</li>
+</ul>
+</blockquote>
+<h3 id="1-1、基本HTPP服务"><a href="#1-1、基本HTPP服务" class="headerlink" title="1.1、基本HTPP服务"></a>1.1、基本HTPP服务</h3><blockquote>
+<ul>
+<li>处理静态文件，如HTML网页以及请求</li>
+<li>打开并自行管理文件描述符缓存</li>
+<li>提供反向代理服务，并且可用缓存加速反向代理</li>
+<li>提供远程FastCGI（通用网关接口）服务的缓存机制</li>
+<li>模块化提供过滤器功能，gzip压缩 ranges支持 chunked响应 XSLT SSI 图像缩放 针对包含多个SSI的页面，经由反向代理SSI过滤器可并行处理</li>
+<li>支持安全套接协议SSL</li>
+</ul>
+</blockquote>
+<h3 id="1-2、高级HTTP服务"><a href="#1-2、高级HTTP服务" class="headerlink" title="1.2、高级HTTP服务"></a>1.2、高级HTTP服务</h3><blockquote>
+<ul>
+<li>支持基于名字和IP的虚拟主机设置</li>
+<li>支持HTTP/1.0 中的keep-alive模式和管线模型(PipelLined)连接</li>
+<li>支持重新升级时，无需中断正在处理的请求</li>
+<li>自定义访问日志格式、带缓存的日志写操作以及快速日志轮转</li>
+<li>提供3xx 5xx错误代码重定向功能</li>
+<li>支持重写模块扩展</li>
+<li>支持HTTP DAV模块，从而为HTTP DAV模块提供PUT DELETE MKCOL COPY MOVE方法</li>
+<li>支持FLV流和MP4流传输</li>
+<li>支持网络监控，访问控制、速度限制或请求限制等</li>
+<li>支持嵌入perl语言</li>
+</ul>
+</blockquote>
+<h3 id="1-3、邮件代理服务"><a href="#1-3、邮件代理服务" class="headerlink" title="1.3、邮件代理服务"></a>1.3、邮件代理服务</h3><blockquote>
+<ul>
+<li>支持使用外部HTTP认证服务器重定向用户到IMAP/POP3后端，并支持IMAP认证方式和POP3认证方式</li>
+<li>支持使用外部HTTP认证服务器器认证用户后重定向连接到内部SMTP后端，并支持SMTP认证方式</li>
+<li>支持邮件代理服务下的安全套接层安全协议SSL</li>
+<li>支持纯文本通信协议的扩展协议STARTTLS</li>
+</ul>
+</blockquote>
+<h3 id="1-4、常用功能"><a href="#1-4、常用功能" class="headerlink" title="1.4、常用功能"></a>1.4、常用功能</h3><blockquote>
+<ul>
+<li>HTTP代理和反向代理 <ul>
+<li>请求稳定，后端转发与业务配合分离，配置灵活，支持判断表达式</li>
+</ul>
+</li>
+<li>负载均衡 <ul>
+<li>将单一的重负载分担到多个网络节点上做并行处理，每个节点处理结束后将结果汇总给用户提高网络系统的处理能力 </li>
+<li>将大量的前端并发访问或者数据流量分担到多个后端网络节点上分别处理 <ul>
+<li>nginx的负载均衡策略 </li>
+<li>内置策略:轮询 加权轮询 IP HASH </li>
+<li>扩展策略 主要通过第三方模块实现，常见有url hash</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>WEB缓存 <ul>
+<li>主要由Proxy_Cache(提供代理服务时，对后端服务器返回内容进行URL缓存) 和FastCGI_Cache(对FastCGI程序缓存)指令集构成</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</div></article></div><div class="right-container"><div class="widget"><div class="category"><h4>分类归档</h4><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA/">IDEA</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Maven/">Maven</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Readme/">Readme</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/soft/">soft</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/springboot/">springboot</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/springcloud/">springcloud</a><span class="category-list-count">1</span></li></ul></div></div><!--include ../widget/tagcloud--><div class="widget"><div class="recent"><h4>最近文章</h4><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Python/1579743010000.html">Python-003:函数式编程</a></li><li class="post-list-item"><a class="post-list-link" href="/Python/1579683101000.html">Python-002:高级特性</a></li><li class="post-list-item"><a class="post-list-link" href="/Python/1579586436000.html">Python-001:基础学习</a></li><li class="post-list-item"><a class="post-list-link" href="/IDEA/1555034436.html">IDEA-001:常用插件</a></li><li class="post-list-item"><a class="post-list-link" href="/Docker/1544509536.html">Docker01:常用命令</a></li></ul></div></div><!--include ../widget/catalog--></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/Nginx/1540521524.html" class="prev">上一篇</a><a href="/linux/1540430457.html" class="next">下一篇</a></div><div class="copyright"><p>© 2016 - 2020 <a target="_blank">xiaogang zhou</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="http://apps.bdimg.com/libs/jquery/1.8.2/jquery.min.js"></script><script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script><script src="/scripts/hit-kounter-lc-0.2.0.js"></script><script src="/scripts/arAnchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

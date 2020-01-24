@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> Python-002:高级特性 · 周晓钢的知识崖</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Python-002:高级特性 - xiaogang zhou"><meta name="keywords" content="知识崖"><meta name="author" content="xiaogang zhou"><link rel="short icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="周晓钢的知识崖"></head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="首页" class="nav-list-link">首页</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">Python-002:高级特性</h1><div class="post-info">2020-01-22<p class="visit"><i data-hk-page="current">-</i><span>次访问</span></p></div><div class="post-content"><p><img src="/img/2020/python_001.jpg" width="30%" height="30%"><br><a id="more"></a></p>
+<h3 id="1、Python高级特性"><a href="#1、Python高级特性" class="headerlink" title="1、Python高级特性"></a>1、Python高级特性</h3><pre><code>但是在Python中，代码不是越多越好，而是越少越好。代码不是越复杂越好，而是越简单越好。
+基于这一思想，我们来介绍Python中非常有用的高级特性，1行代码能实现的功能，决不写5行代码。
+请始终牢记，代码越少，开发效率越高。
+</code></pre><h4 id="1-1、切片-slice"><a href="#1-1、切片-slice" class="headerlink" title="1.1、切片-slice"></a>1.1、切片-slice</h4><table>
+<thead>
+<tr>
+<th>定义</th>
+<th>正取</th>
+<th>倒取</th>
+<th>前11-20个数</th>
+<th>每5个取一个</th>
+<th>复制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L = [‘Michael’, ‘Sarah’, ‘Tracy’]</td>
+<td>L[0:2]/L[:3]</td>
+<td>L[-2:]</td>
+<td>L[10:20]</td>
+<td>L[::5]</td>
+<td>L[:]</td>
+</tr>
+<tr>
+<td>字符串，tuple类似</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">trim</span><span class="params">(str)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(str) &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">while</span> str[:<span class="number">1</span>] == <span class="string">' '</span>:</span><br><span class="line">            str = str[<span class="number">1</span>:len(str)]</span><br><span class="line">        <span class="keyword">while</span> str[<span class="number">-1</span>:] == <span class="string">' '</span>:</span><br><span class="line">            str = str[<span class="number">0</span>:len(str)<span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">return</span> str</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> trim(<span class="string">'hello  '</span>) != <span class="string">'hello'</span>:</span><br><span class="line">    print(<span class="string">'测试失败!'</span>)</span><br><span class="line"><span class="keyword">elif</span> trim(<span class="string">'  hello'</span>) != <span class="string">'hello'</span>:</span><br><span class="line">    print(<span class="string">'测试失败!'</span>)</span><br><span class="line"><span class="keyword">elif</span> trim(<span class="string">'  hello  '</span>) != <span class="string">'hello'</span>:</span><br><span class="line">    print(<span class="string">'测试失败!'</span>)</span><br><span class="line"><span class="keyword">elif</span> trim(<span class="string">'  hello  world  '</span>) != <span class="string">'hello  world'</span>:</span><br><span class="line">    print(<span class="string">'测试失败!'</span>)</span><br><span class="line"><span class="keyword">elif</span> trim(<span class="string">''</span>) != <span class="string">''</span>:</span><br><span class="line">    print(<span class="string">'测试失败!'</span>)</span><br><span class="line"><span class="keyword">elif</span> trim(<span class="string">'    '</span>) != <span class="string">''</span>:</span><br><span class="line">    print(<span class="string">'测试失败!'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'测试成功!'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="1-2、迭代"><a href="#1-2、迭代" class="headerlink" title="1.2、迭代"></a>1.2、迭代</h4><pre><code>定义：如果给定一个list或tuple，我们可以通过for循环来遍历这个list或tuple，这种遍历我们称为迭代（Iteration）。
+    在Python中，迭代是通过`for ... in`来完成的，而很多语言比如C语言，迭代list是通过下标完成的；
+    Python的for循环不仅可以用在list或tuple上，还可以作用在其他可迭代对象上。
+    默认情况下，dict迭代的是key。如果要迭代value，可以用`for value in d.values()`，如果要同时迭代key和value，可以用`for k, v in d.items()`。
+    由于字符串也是可迭代对象
+</code></pre><h4 id="1-3、列表生成式"><a href="#1-3、列表生成式" class="headerlink" title="1.3、列表生成式"></a>1.3、列表生成式</h4><pre><code>定义：列表生成式即List Comprehensions，是Python内置的非常简单却强大的可以用来创建list的生成式。
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>)]</span><br><span class="line"></span><br><span class="line">[x * x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">11</span>) <span class="keyword">if</span> x % <span class="number">2</span> == <span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">[m + n <span class="keyword">for</span> m <span class="keyword">in</span> <span class="string">'ABC'</span> <span class="keyword">for</span> n <span class="keyword">in</span> <span class="string">'XYZ'</span>]</span><br></pre></td></tr></table></figure>
+<pre><code>总结：运用列表生成式，可以快速生成list，可以通过一个list推导出另一个list，而代码却十分简洁。
+</code></pre><h4 id="1-4、生成器"><a href="#1-4、生成器" class="headerlink" title="1.4、生成器"></a>1.4、生成器</h4><pre><code>定义：通过列表生成式，我们可以直接创建一个列表。但是，受到内存限制，列表容量肯定是有限的。
+    而且，创建一个包含100万个元素的列表，不仅占用很大的存储空间，如果我们仅仅需要访问前面几个元素，那后面绝大多数元素占用的空间都白白浪费了。
+所以，如果列表元素可以按照某种算法推算出来，那我们是否可以在循环的过程中不断推算出后续的元素呢？这样就不必创建完整的list，
+从而节省大量的空间。在Python中，这种一边循环一边计算的机制，称为生成器：generator。
+要创建一个generator，有很多种方法。第一种方法很简单，只要把一个列表生成式的[]改成()，就创建了一个generator：
+</code></pre><h4 id="1-5、迭代器"><a href="#1-5、迭代器" class="headerlink" title="1.5、迭代器"></a>1.5、迭代器</h4><pre><code>我们已经知道，可以直接作用于for循环的数据类型有以下几种：
+
+一类是集合数据类型，如list、tuple、dict、set、str等；
+
+一类是generator，包括生成器和带yield的generator function。
+
+这些可以直接作用于for循环的对象统称为可迭代对象：Iterable。
+
+可以使用isinstance()判断一个对象是否是Iterable对象：
+
+    &gt;&gt;&gt; from collections import Iterable
+    &gt;&gt;&gt; isinstance([], Iterable)
+    True
+    &gt;&gt;&gt; isinstance({}, Iterable)
+    True
+    &gt;&gt;&gt; isinstance(&apos;abc&apos;, Iterable)
+    True
+    &gt;&gt;&gt; isinstance((x for x in range(10)), Iterable)
+    True
+    &gt;&gt;&gt; isinstance(100, Iterable)
+    False
+而生成器不但可以作用于for循环，还可以被next()函数不断调用并返回下一个值，直到最后抛出StopIteration错误表示无法继续返回下一个值了。
+
+可以被next()函数调用并不断返回下一个值的对象称为迭代器：Iterator。
+
+可以使用isinstance()判断一个对象是否是Iterator对象：
+
+    &gt;&gt;&gt; from collections import Iterator
+    &gt;&gt;&gt; isinstance((x for x in range(10)), Iterator)
+    True
+    &gt;&gt;&gt; isinstance([], Iterator)
+    False
+    &gt;&gt;&gt; isinstance({}, Iterator)
+    False
+    &gt;&gt;&gt; isinstance(&apos;abc&apos;, Iterator)
+    False
+生成器都是Iterator对象，但list、dict、str虽然是Iterable，却不是Iterator。
+
+把list、dict、str等Iterable变成Iterator可以使用iter()函数：
+
+    &gt;&gt;&gt; isinstance(iter([]), Iterator)
+    True
+    &gt;&gt;&gt; isinstance(iter(&apos;abc&apos;), Iterator)
+    True
+你可能会问，为什么list、dict、str等数据类型不是Iterator？
+
+这是因为Python的Iterator对象表示的是一个数据流，Iterator对象可以被next()函数调用并不断返回下一个数据，直到没有数据时抛出StopIteration错误。可以把这个数据流看做是一个有序序列，但我们却不能提前知道序列的长度，只能不断通过next()函数实现按需计算下一个数据，所以Iterator的计算是惰性的，只有在需要返回下一个数据时它才会计算。
+
+Iterator甚至可以表示一个无限大的数据流，例如全体自然数。而使用list是永远不可能存储全体自然数的。
+
+小结
+凡是可作用于for循环的对象都是Iterable类型；
+
+凡是可作用于next()函数的对象都是Iterator类型，它们表示一个惰性计算的序列；
+
+集合数据类型如list、dict、str等是Iterable但不是Iterator，不过可以通过iter()函数获得一个Iterator对象。
+
+Python的for循环本质上就是通过不断调用next()函数实现的，例如：
+
+    for x in [1, 2, 3, 4, 5]:
+        pass
+实际上完全等价于：
+
+# 首先获得Iterator对象:
+    it = iter([1, 2, 3, 4, 5])
+    # 循环:
+    while True:
+        try:
+            # 获得下一个值:
+            x = next(it)
+        except StopIteration:
+            # 遇到StopIteration就退出循环
+            break
+</code></pre></div></article></div><div class="right-container"><div class="widget"><div class="category"><h4>分类归档</h4><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA/">IDEA</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Maven/">Maven</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Readme/">Readme</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/soft/">soft</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/springboot/">springboot</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/springcloud/">springcloud</a><span class="category-list-count">1</span></li></ul></div></div><!--include ../widget/tagcloud--><div class="widget"><div class="recent"><h4>最近文章</h4><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Python/1579743010000.html">Python-003:函数式编程</a></li><li class="post-list-item"><a class="post-list-link" href="/Python/1579683101000.html">Python-002:高级特性</a></li><li class="post-list-item"><a class="post-list-link" href="/Python/1579586436000.html">Python-001:基础学习</a></li><li class="post-list-item"><a class="post-list-link" href="/IDEA/1555034436.html">IDEA-001:常用插件</a></li><li class="post-list-item"><a class="post-list-link" href="/Docker/1544509536.html">Docker01:常用命令</a></li></ul></div></div><!--include ../widget/catalog--></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/Python/1579743010000.html" class="prev">上一篇</a><a href="/Python/1579586436000.html" class="next">下一篇</a></div><div class="copyright"><p>© 2016 - 2020 <a target="_blank">xiaogang zhou</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="http://apps.bdimg.com/libs/jquery/1.8.2/jquery.min.js"></script><script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script><script src="/scripts/hit-kounter-lc-0.2.0.js"></script><script src="/scripts/arAnchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

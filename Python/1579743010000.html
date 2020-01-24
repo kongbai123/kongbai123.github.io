@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="baidu-site-verification" content="1EB8XoOl0C"><meta name="google-site-verification" content="K7thEgdLm0UfRWJ5MGdF7sCcjClSzAlxFLPv2Oz5CGM"><title> Python-003:函数式编程 · 周晓钢的知识崖</title><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Python-003:函数式编程 - xiaogang zhou"><meta name="keywords" content="知识崖"><meta name="author" content="xiaogang zhou"><link rel="short icon" href="/images/favicon.ico"><link rel="stylesheet" href="/css/bubuzou.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="周晓钢的知识崖"></head><body><header><div class="header row"> <a href="/" class="logo-link"><img src="/images/logo.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" data-hover="首页" class="nav-list-link">首页</a></li><li class="nav-list-item"><a href="/archives/" target="_self" data-hover="归档" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="/about/" target="_self" data-hover="关于" class="nav-list-link">关于</a></li></ul><div class="search"><a id="search_btn" href="#search"></a></div></div></header><div class="row scroll-con"><section class="container"><!-- for archive page--><div id="postAr" class="post"><article class="post-block"><h1 class="post-title">Python-003:函数式编程</h1><div class="post-info">2020-01-23<p class="visit"><i data-hk-page="current">-</i><span>次访问</span></p></div><div class="post-content"><p><img src="/img/2020/python_001.jpg" width="30%" height="30%"><br><a id="more"></a></p>
+<h3 id="1、Python函数式编程"><a href="#1、Python函数式编程" class="headerlink" title="1、Python函数式编程"></a>1、Python函数式编程</h3><pre><code>函数是Python内建支持的一种封装，我们通过把大段代码拆成函数，通过一层一层的函数调用，就可以把复杂任务分解成简单的任务，这种分解可以称之为面向过程的程序设计。函数就是面向过程的程序设计的基本单元。
+
+而函数式编程（请注意多了一个“式”字）——Functional Programming，虽然也可以归结到面向过程的程序设计，但其思想更接近数学计算。
+
+我们首先要搞明白计算机（Computer）和计算（Compute）的概念。
+
+在计算机的层次上，CPU执行的是加减乘除的指令代码，以及各种条件判断和跳转指令，所以，汇编语言是最贴近计算机的语言。
+
+而计算则指数学意义上的计算，越是抽象的计算，离计算机硬件越远。
+
+对应到编程语言，就是越低级的语言，越贴近计算机，抽象程度低，执行效率高，比如C语言；越高级的语言，越贴近计算，抽象程度高，执行效率低，比如Lisp语言。
+
+函数式编程就是一种抽象程度很高的编程范式，纯粹的函数式编程语言编写的函数没有变量，因此，任意一个函数，只要输入是确定的，输出就是确定的，这种纯函数我们称之为没有副作用。而允许使用变量的程序设计语言，由于函数内部的变量状态不确定，同样的输入，可能得到不同的输出，因此，这种函数是有副作用的。
+
+函数式编程的一个特点就是，允许把函数本身作为参数传入另一个函数，还允许返回一个函数！
+
+Python对函数式编程提供部分支持。由于Python允许使用变量，因此，Python不是纯函数式编程语言。
+</code></pre><h4 id="1-1、高阶函数"><a href="#1-1、高阶函数" class="headerlink" title="1.1、高阶函数"></a>1.1、高阶函数</h4><table>
+<thead>
+<tr>
+<th>高阶函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>定义</td>
+<td>一个函数就可以接收另一个函数作为参数，这种函数就称之为高阶函数。</td>
+</tr>
+<tr>
+<td>代码示例</td>
+<td>def add(x, y, f):  return f(x) + f(y)</td>
+</tr>
+<tr>
+<td>map\reduce</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>总结</td>
+<td>变量可以指向函数；函数名也是变量；函数式编程就是指这种高度抽象的编程范式。</td>
+</tr>
+</tbody>
+</table>
+</div></article></div><div class="right-container"><div class="widget"><div class="category"><h4>分类归档</h4><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/IDEA/">IDEA</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Maven/">Maven</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Nginx/">Nginx</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Readme/">Readme</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/soft/">soft</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/springboot/">springboot</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/springcloud/">springcloud</a><span class="category-list-count">1</span></li></ul></div></div><!--include ../widget/tagcloud--><div class="widget"><div class="recent"><h4>最近文章</h4><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Python/1579743010000.html">Python-003:函数式编程</a></li><li class="post-list-item"><a class="post-list-link" href="/Python/1579683101000.html">Python-002:高级特性</a></li><li class="post-list-item"><a class="post-list-link" href="/Python/1579586436000.html">Python-001:基础学习</a></li><li class="post-list-item"><a class="post-list-link" href="/IDEA/1555034436.html">IDEA-001:常用插件</a></li><li class="post-list-item"><a class="post-list-link" href="/Docker/1544509536.html">Docker01:常用命令</a></li></ul></div></div><!--include ../widget/catalog--></div></section></div><div class="right-menu"></div><div class="modal search-modal"><div class="input-field"><input type="text" id="search_input"><label for="search-input">搜索</label></div><div id="search_result" class="search-result"></div></div><div class="blog-overlay"></div><footer class="row"><div class="footer-con"><div class="paginator"><a href="/Python/1579683101000.html" class="next">下一篇</a></div><div class="copyright"><p>© 2016 - 2020 <a target="_blank">xiaogang zhou</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> <br> and <a href="https://github.com/Bulandent/hexo-theme-bubuzou" target="_blank">hexo-theme-bubuzou</a></p></div><div class="totop"><i></i></div></div></footer><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script src="http://apps.bdimg.com/libs/jquery/1.8.2/jquery.min.js"></script><script src="https://cdn1.lncld.net/static/js/av-mini-0.6.10.js"></script><script src="/scripts/hit-kounter-lc-0.2.0.js"></script><script src="/scripts/arAnchor.js"></script><script src="/scripts/main.js"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
